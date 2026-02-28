@@ -1,0 +1,2209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOC Analyst Roadmap — 10 Months</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #f7f6f3;
+        --surface: #ffffff;
+        --border: #e0ddd6;
+        --text: #1a1a1a;
+        --muted: #6b6860;
+        --done-text: #a0a09a;
+        --mono: "IBM Plex Mono", monospace;
+        --sans: "IBM Plex Sans", sans-serif;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 0 16px 80px;
+        font-size: 15px;
+      }
+
+      .header {
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 48px 0 28px;
+        border-bottom: 2px solid var(--text);
+      }
+      .header-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .header p {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      .progress-wrap {
+        max-width: 740px;
+        margin: 24px auto 0;
+        padding: 18px 22px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+      }
+      .progress-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 9px;
+      }
+      .progress-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+      }
+      .progress-count {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 5px;
+        background: var(--border);
+      }
+      .progress-fill {
+        height: 100%;
+        background: var(--text);
+        transition: width 0.3s ease;
+      }
+      .reset-btn {
+        margin-top: 10px;
+        background: none;
+        border: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 5px 12px;
+        cursor: pointer;
+        display: block;
+        margin-left: auto;
+      }
+      .reset-btn:hover {
+        border-color: var(--text);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+
+      .phase {
+        margin-top: 28px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .phase-header {
+        padding: 16px 22px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .phase-header:hover {
+        background: #fafaf8;
+      }
+      .phase-tag {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+        min-width: 86px;
+      }
+      .phase-title {
+        font-size: 15px;
+        font-weight: 600;
+        flex: 1;
+      }
+      .phase-toggle {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--muted);
+        margin-left: auto;
+      }
+      .phase-body {
+        padding: 0 22px 22px;
+      }
+      .phase-desc {
+        font-size: 13px;
+        color: var(--muted);
+        padding: 12px 0 16px;
+        font-style: italic;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 18px;
+      }
+      .phase-body.collapsed {
+        display: none;
+      }
+
+      .section {
+        margin-bottom: 26px;
+      }
+      .section-title {
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed var(--border);
+      }
+
+      /* Task item */
+      .task {
+        border-bottom: 1px solid #f0ede8;
+        padding: 0;
+      }
+      .task:last-child {
+        border-bottom: none;
+      }
+      .task-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 9px 0 4px;
+      }
+      input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        border: 1.5px solid #bbb;
+        background: white;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-top: 3px;
+        position: relative;
+      }
+      input[type="checkbox"]:checked {
+        background: var(--text);
+        border-color: var(--text);
+      }
+      input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 1px;
+        width: 5px;
+        height: 8px;
+        border: 2px solid white;
+        border-top: none;
+        border-left: none;
+        transform: rotate(45deg);
+      }
+      .task label {
+        font-size: 14px;
+        line-height: 1.5;
+        cursor: pointer;
+        flex: 1;
+        font-weight: 500;
+      }
+      input:checked + label {
+        color: var(--done-text);
+        text-decoration: line-through;
+        text-decoration-color: #ccc;
+      }
+
+      /* Resources under a task */
+      .resources {
+        padding: 0 0 8px 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .res {
+        display: flex;
+        align-items: baseline;
+        gap: 7px;
+      }
+      .res-tag {
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: white;
+        background: var(--text);
+        padding: 1px 5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .res-tag.video {
+        background: #2c2c2c;
+      }
+      .res-tag.doc {
+        background: #555;
+      }
+      .res-tag.practice {
+        background: #888;
+      }
+      .res-tag.tool {
+        background: #444;
+      }
+      .res a {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+        text-decoration: none;
+        word-break: break-all;
+      }
+      .res a:hover {
+        color: var(--text);
+        text-decoration: underline;
+      }
+      .res-desc {
+        font-size: 12px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .note {
+        background: #f7f5f0;
+        border-left: 3px solid var(--text);
+        padding: 10px 14px;
+        font-size: 13px;
+        color: var(--muted);
+        margin: 10px 0 14px;
+      }
+      .note strong {
+        color: var(--text);
+      }
+
+      .milestone {
+        margin-top: 18px;
+        padding: 12px 14px;
+        border: 1px dashed var(--border);
+        font-size: 13px;
+      }
+      .milestone-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 5px;
+      }
+
+      .summary {
+        margin-top: 28px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .summary-header {
+        padding: 14px 22px;
+        border-bottom: 1px solid var(--border);
+      }
+      .summary-header h2 {
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--mono);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      th {
+        text-align: left;
+        padding: 9px 22px;
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+        background: #fafaf8;
+      }
+      td {
+        padding: 10px 22px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        line-height: 1.5;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      td:first-child {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .footer-note {
+        max-width: 740px;
+        margin: 24px auto 0;
+        padding: 18px 22px;
+        background: var(--text);
+        color: white;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .footer-note strong {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-label">
+        Career Transition Plan · 10 Months · SOC Analyst · 10–12 hrs/week
+      </div>
+      <h1>SOC Analyst Roadmap — Exact Resources Edition</h1>
+      <p>
+        Every task has direct links to the exact video, doc, or practice you
+        need. No searching around. Progress saves automatically.
+      </p>
+    </div>
+
+    <div class="progress-wrap container">
+      <div class="progress-top">
+        <span class="progress-label">Overall Progress</span>
+        <span class="progress-count" id="progressCount">0 / 0</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <button class="reset-btn" onclick="resetAll()">Reset All Progress</button>
+    </div>
+
+    <div class="container">
+      <!-- ══════════════════════════════════════════════
+     PHASE 1
+══════════════════════════════════════════════ -->
+      <div class="phase">
+        <div class="phase-header" onclick="togglePhase(this)">
+          <span class="phase-tag">Month 1–2</span>
+          <span class="phase-title"
+            >Phase 1 — Networking + Linux + Lab Setup</span
+          >
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p class="phase-desc">
+            The foundation everything else sits on. Do not skip or rush this.
+            90% of SOC work is reading network traffic and logs.
+          </p>
+
+          <!-- NETWORKING -->
+          <div class="section">
+            <div class="section-title">
+              Networking — Watch in this exact order
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t1" /><label for="t1"
+                  >The OSI Model — understand how data travels across a network
+                  layer by layer</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/understanding-the-osi-model-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Understanding the OSI Model
+                    (13:51)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t2" /><label for="t2"
+                  >Networking Devices — switches, routers, firewalls, access
+                  points</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/networking-devices-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Networking Devices (14:31)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t3" /><label for="t3"
+                  >Introduction to IP — how IP moves data, TCP vs UDP
+                  explained</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/introduction-to-ip-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Introduction to IP (14:10)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t4" /><label for="t4"
+                  >Common Ports — know the essential ports: HTTP 80, HTTPS 443,
+                  DNS 53, RDP 3389, SSH 22</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/common-ports-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Common Ports (20:22)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t5" /><label for="t5"
+                  >DNS — how domain names resolve to IP addresses (critical for
+                  SOC log reading)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/an-overview-of-dns-n10-009/"
+                    target="_blank"
+                    >professormesser.com — An Overview of DNS (N10-009)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t6" /><label for="t6"
+                  >Networking Functions — VPNs, CDNs, QoS, how protocols work
+                  together</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/networking-functions-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Networking Functions (13:25)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t7" /><label for="t7"
+                  >Binary Math — learn this so subnetting clicks. Do not
+                  skip.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/binary-math-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Binary Math (9:15)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t8" /><label for="t8"
+                  >IPv4 Addressing — public vs private IPs, how subnets work,
+                  CIDR notation</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/ipv4-addressing-n10-009/"
+                    target="_blank"
+                    >professormesser.com — IPv4 Addressing (11:06)</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://subnettingpractice.com" target="_blank"
+                    >subnettingpractice.com — drill subnetting 5 min/day until
+                    it's instant</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t9" /><label for="t9"
+                  >Network Topologies — star, mesh, hybrid layouts</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/network-topologies-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Network Topologies (4:42)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t10" /><label for="t10"
+                  >Command Line Tools — ping, traceroute, nslookup, dig,
+                  netstat. You will use these daily in SOC.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/network-plus/n10-009/n10-009-video/command-line-tools-n10-009/"
+                    target="_blank"
+                    >professormesser.com — Command Line Tools (N10-009)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t11" /><label for="t11"
+                  >Practical Networking written guides — use alongside videos to
+                  reinforce concepts</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/"
+                    target="_blank"
+                    >practicalnetworking.net — Packet Traveling Series (read
+                    this)</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LINUX -->
+          <div class="section">
+            <div class="section-title">Linux — Learn by doing, not reading</div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t12" /><label for="t12"
+                  >Linux Journey — complete Grasshopper section first (command
+                  line basics)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://linuxjourney.com/lesson/the-shell"
+                    target="_blank"
+                    >linuxjourney.com — Start at: The Shell (Grasshopper)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t13" /><label for="t13"
+                  >Linux Journey — complete Journeyman section (permissions,
+                  processes, packages)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://linuxjourney.com/lesson/etc-fstab"
+                    target="_blank"
+                    >linuxjourney.com — Journeyman section</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t14" /><label for="t14"
+                  >OverTheWire: Bandit — complete ALL 34 levels. This is your
+                  Linux practical exam. Go level by level, look up hints only if
+                  stuck for 30 minutes.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://overthewire.org/wargames/bandit/bandit0.html"
+                    target="_blank"
+                    >overthewire.org — Bandit Level 0 (start here)</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://overthewire.org/wargames/bandit/"
+                    target="_blank"
+                    >overthewire.org — Bandit overview and all level links</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LAB SETUP -->
+          <div class="section">
+            <div class="section-title">Home Lab Setup — Do this in Week 1</div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t15" /><label for="t15"
+                  >Download and install VirtualBox (free) — this runs your
+                  virtual machines</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a
+                    href="https://www.virtualbox.org/wiki/Downloads"
+                    target="_blank"
+                    >virtualbox.org/wiki/Downloads — download for your OS</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t16" /><label for="t16"
+                  >Download Kali Linux pre-built VirtualBox image — this is your
+                  attacker/security machine</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a
+                    href="https://www.kali.org/get-kali/#kali-virtual-machines"
+                    target="_blank"
+                    >kali.org/get-kali — choose VirtualBox image (pre-built)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t17" /><label for="t17"
+                  >Download Ubuntu Server — this is your log-generating target
+                  machine</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a href="https://ubuntu.com/download/server" target="_blank"
+                    >ubuntu.com/download/server — download Ubuntu Server LTS</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t18" /><label for="t18"
+                  >Set both VMs to "Internal Network" in VirtualBox settings and
+                  verify they can ping each other</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.virtualbox.org/manual/ch06.html"
+                    target="_blank"
+                    >virtualbox.org manual — Chapter 6: Virtual Networking</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-label">Month 1–2 Milestone</div>
+            You can subnet on paper, explain DNS and TCP/IP in plain words,
+            navigate Linux terminal confidently, and you've completed all 34
+            Bandit levels. Both VMs are running.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     PHASE 2
+══════════════════════════════════════════════ -->
+      <div class="phase">
+        <div class="phase-header" onclick="togglePhase(this)">
+          <span class="phase-tag">Month 2–4</span>
+          <span class="phase-title">Phase 2 — Security Fundamentals</span>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p class="phase-desc">
+            You learn what attackers do and how defenders think. Build
+            vocabulary and mental models before touching tools.
+          </p>
+
+          <div class="section">
+            <div class="section-title">
+              Core Security Concepts — SANS Cyber Aces (do this first)
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t19" /><label for="t19"
+                  >SANS Cyber Aces — free course covering OS, networking, and
+                  security basics. Built for beginners. Do the full
+                  course.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://www.sans.org/cyberaces/" target="_blank"
+                    >sans.org/cyberaces — free, register and start</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              Professor Messer Security+ — Key Foundation Videos
+            </div>
+            <div class="note">
+              <strong>How to use this:</strong> These aren't exam-prep yet —
+              they're vocabulary and mental model building. Watch them once
+              through, take notes. You'll revisit the full course in Phase 4 for
+              exam prep. All videos are free on his site, no account needed.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t20" /><label for="t20"
+                  >Watch the intro first — explains the course structure and
+                  exam overview</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/how-to-pass-your-sy0-701-security-exam/"
+                    target="_blank"
+                    >professormesser.com — How to Pass Your SY0-701 Security+
+                    Exam (10:06)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t21" /><label for="t21"
+                  >Security Controls — categories of controls defenders
+                  use</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/security-controls-sy0-701/"
+                    target="_blank"
+                    >professormesser.com — Security Controls (11:48)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t22" /><label for="t22"
+                  >The CIA Triad — Confidentiality, Integrity, Availability.
+                  This is the foundation of every security decision.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/the-cia-triad-sy0-701/"
+                    target="_blank"
+                    >professormesser.com — The CIA Triad (5:17)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t23" /><label for="t23"
+                  >Authentication, Authorization, and Accounting (AAA) — how
+                  identity and access are managed</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/authentication-authorization-and-accounting-sy0-701/"
+                    target="_blank"
+                    >professormesser.com — AAA (9:03)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t24" /><label for="t24"
+                  >Zero Trust — modern security architecture concept you'll see
+                  in job descriptions</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/zero-trust-sy0-701/"
+                    target="_blank"
+                    >professormesser.com — Zero Trust (10:04)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t25" /><label for="t25"
+                  >Full Security+ video course index — bookmark this, you will
+                  return to it in Phase 4</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/"
+                    target="_blank"
+                    >professormesser.com — Full SY0-701 Course Index (121
+                    videos, all free)</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              TryHackMe — Core Practical Training Platform
+            </div>
+            <div class="note">
+              <strong>Create your free account at tryhackme.com</strong> — all
+              rooms below are on the free tier. Do them in the order listed.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t26" /><label for="t26"
+                  >Complete the Pre-Security Learning Path — covers networking,
+                  web, Linux basics with guided tasks</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/path/outline/presecurity"
+                    target="_blank"
+                    >tryhackme.com — Pre-Security Path (free, start here)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t27" /><label for="t27"
+                  >Intro to Defensive Security room — blue team mindset, SIEM,
+                  IDS/IPS overview</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/defensivesecurity"
+                    target="_blank"
+                    >tryhackme.com/room/defensivesecurity</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t28" /><label for="t28"
+                  >Windows Fundamentals 1 — Windows file system, users,
+                  permissions</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/windowsfundamentals1xbx"
+                    target="_blank"
+                    >tryhackme.com/room/windowsfundamentals1xbx</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t29" /><label for="t29"
+                  >Windows Fundamentals 2 — system config, task manager,
+                  UAC</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/windowsfundamentals2x0x"
+                    target="_blank"
+                    >tryhackme.com/room/windowsfundamentals2x0x</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t30" /><label for="t30"
+                  >Windows Fundamentals 3 — Windows security tools, Defender,
+                  BitLocker</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/windowsfundamentals3xzx"
+                    target="_blank"
+                    >tryhackme.com/room/windowsfundamentals3xzx</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t31" /><label for="t31"
+                  >Intro to SIEM — what a SIEM is, how it collects logs, why
+                  SOCs use it</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/introtosiem"
+                    target="_blank"
+                    >tryhackme.com/room/introtosiem</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t32" /><label for="t32"
+                  >Splunk: Basics — navigating Splunk, search queries, basic log
+                  analysis</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/splunk101"
+                    target="_blank"
+                    >tryhackme.com/room/splunk101</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t33" /><label for="t33"
+                  >Windows Event Logs — reading and interpreting Event IDs. This
+                  is daily SOC work.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/windowseventlogs"
+                    target="_blank"
+                    >tryhackme.com/room/windowseventlogs</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t34" /><label for="t34"
+                  >Investigating with Splunk — real alert investigation using
+                  Splunk queries</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/investigatingwithsplunk"
+                    target="_blank"
+                    >tryhackme.com/room/investigatingwithsplunk</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t35" /><label for="t35"
+                  >Complete the SOC Level 1 Learning Path — your full structured
+                  practical SOC training</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/path/outline/soclevel1"
+                    target="_blank"
+                    >tryhackme.com — SOC Level 1 Path (free)</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-label">Month 2–4 Milestone</div>
+            TryHackMe Pre-Security and SOC Level 1 paths done. You understand
+            what a SIEM does, can read Windows Event logs, and can explain CIA
+            Triad, AAA, and Zero Trust in plain words.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     PHASE 3
+══════════════════════════════════════════════ -->
+      <div class="phase">
+        <div class="phase-header" onclick="togglePhase(this)">
+          <span class="phase-tag">Month 4–7</span>
+          <span class="phase-title"
+            >Phase 3 — Core SOC Tools + Portfolio Projects</span
+          >
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p class="phase-desc">
+            This is where you build real job skills and your first portfolio
+            pieces. Do not skip the writeups — they are your evidence in
+            interviews.
+          </p>
+
+          <div class="section">
+            <div class="section-title">
+              Splunk — Official Free Course + Real Investigations
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t36" /><label for="t36"
+                  >Splunk Fundamentals 1 — official free course, earn a Splunk
+                  badge on completion. Do all modules.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html"
+                    target="_blank"
+                    >splunk.com — Splunk Fundamentals 1 (free, register and
+                    start)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t37" /><label for="t37"
+                  >Boss of the SOC (BOTS) — Splunk's free real-world
+                  investigation challenges. Treat each scenario as a portfolio
+                  piece.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://bots.splunk.com" target="_blank"
+                    >bots.splunk.com — register free, do Dataset 1 first</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              MITRE ATT&CK — The Attacker Playbook (bookmark and study)
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t38" /><label for="t38"
+                  >Read the MITRE ATT&CK intro and understand the Tactic →
+                  Technique structure. This is how analysts describe attacker
+                  behavior.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a href="https://attack.mitre.org" target="_blank"
+                    >attack.mitre.org — bookmark this, return to it
+                    constantly</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://attack.mitre.org/tactics/enterprise/"
+                    target="_blank"
+                    >attack.mitre.org/tactics/enterprise — all enterprise
+                    tactics listed</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t39" /><label for="t39"
+                  >TryHackMe MITRE room — hands-on walkthrough of the framework
+                  with tasks</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://tryhackme.com/room/mitre" target="_blank"
+                    >tryhackme.com/room/mitre</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t40" /><label for="t40"
+                  >AlienVault OTX — create a free account and read real threat
+                  intel reports weekly. Develop awareness of what real threats
+                  look like.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://otx.alienvault.com" target="_blank"
+                    >otx.alienvault.com — free account, browse Pulses</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              Incident Response — The Standard Framework
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t41" /><label for="t41"
+                  >Read the NIST SP 800-61 Incident Response Guide — the
+                  industry standard. Read sections 2 and 3 fully, skim the
+                  rest.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf"
+                    target="_blank"
+                    >nvlpubs.nist.gov — NIST SP 800-61r2 (free PDF)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t42" /><label for="t42"
+                  >TryHackMe Incident Response and Forensics room — practical
+                  application of the IR lifecycle</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/incidentresponse"
+                    target="_blank"
+                    >tryhackme.com/room/incidentresponse</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Wireshark — Network Packet Analysis</div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t43" /><label for="t43"
+                  >Download Wireshark and run it on your home network. Just
+                  observe traffic for 30 minutes — see what HTTP, DNS, and TCP
+                  look like live.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a
+                    href="https://www.wireshark.org/download.html"
+                    target="_blank"
+                    >wireshark.org/download.html — download free</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t44" /><label for="t44"
+                  >Wireshark User Guide — read "Chapter 6: Working With Captured
+                  Packets" specifically</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html"
+                    target="_blank"
+                    >wireshark.org — Chapter 6: Working With Captured Packets</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t45" /><label for="t45"
+                  >TryHackMe Wireshark 101 room — guided practical filtering and
+                  traffic analysis tasks</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://tryhackme.com/room/wireshark"
+                    target="_blank"
+                    >tryhackme.com/room/wireshark</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              ★ Project 1 — Build Your Home SIEM Lab (Portfolio Piece)
+            </div>
+            <div class="note">
+              <strong>This is your most important portfolio piece.</strong>
+              Follow the MyDFIR 30-Day SOC Analyst Challenge playlist on
+              YouTube. It walks you through building an ELK SIEM step by step
+              with Kali Linux attacking and your SIEM detecting. Document every
+              step and post it on GitHub or write it up on Medium. This alone
+              gets you in front of hiring managers.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t46" /><label for="t46"
+                  >Watch the full MyDFIR 30-Day SOC Analyst Challenge playlist —
+                  follow along hands-on with your lab</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.youtube.com/watch?v=W3ExS2m6B24&list=PLG6KGSNK4PuBb0OjyDIdACZnb8AoNBeq6"
+                    target="_blank"
+                    >youtube.com — MyDFIR 30-Day SOC Analyst Challenge (full
+                    playlist)</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a href="https://www.mydfir.com/labs" target="_blank"
+                    >mydfir.com/labs — free written lab guides from the same
+                    author</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t47" /><label for="t47"
+                  >Set up free Elastic Cloud trial account (14-day trial, no
+                  cost, no card needed for free tier)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a
+                    href="https://cloud.elastic.co/registration"
+                    target="_blank"
+                    >cloud.elastic.co/registration — free trial signup</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t48" /><label for="t48"
+                  >Alternative: Self-host ELK stack on Ubuntu VM (free, no trial
+                  expiry) — follow Elastic's official install guide</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html"
+                    target="_blank"
+                    >elastic.co — Installing Elastic Stack (official guide)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t49" /><label for="t49"
+                  >Configure Ubuntu VM to forward logs into your SIEM using
+                  Elastic Agent</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.elastic.co/guide/en/fleet/current/install-fleet-managed-elastic-agent.html"
+                    target="_blank"
+                    >elastic.co — Install Fleet-managed Elastic Agent</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t50" /><label for="t50"
+                  >Create at least 3 detection rules (brute force, suspicious
+                  login, network scan)</label
+                >
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t51" /><label for="t51"
+                  >Simulate attacks from Kali VM and verify SIEM detects
+                  them</label
+                >
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t52" /><label for="t52"
+                  >Write up the entire lab build — post to GitHub Pages or
+                  Medium. Include screenshots, the detection rules you wrote,
+                  and what each alert means.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a href="https://github.com" target="_blank"
+                    >github.com — create a free account and make a repository
+                    for your portfolio</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              Microsoft Sentinel (optional but valuable)
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t53" /><label for="t53"
+                  >Sign up for Azure free account ($200 free credits) and spin
+                  up a Microsoft Sentinel instance</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a
+                    href="https://azure.microsoft.com/en-us/free"
+                    target="_blank"
+                    >azure.microsoft.com/en-us/free — free account with
+                    credits</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://learn.microsoft.com/en-us/azure/sentinel/quickstart-onboard"
+                    target="_blank"
+                    >learn.microsoft.com — Microsoft Sentinel Quickstart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-label">Month 4–7 Milestone</div>
+            Working home SIEM lab live. Splunk Fundamentals 1 badge earned. BOTS
+            investigations started. First public writeup posted on GitHub or
+            Medium.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     PHASE 4
+══════════════════════════════════════════════ -->
+      <div class="phase">
+        <div class="phase-header" onclick="togglePhase(this)">
+          <span class="phase-tag">Month 7–10</span>
+          <span class="phase-title">Phase 4 — Certification + Job Prep</span>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p class="phase-desc">
+            Cert study, portfolio completion, and job applications run in
+            parallel. Do not wait until the cert is done to apply.
+          </p>
+
+          <div class="section">
+            <div class="section-title">
+              CompTIA Security+ SY0-701 — Full Exam Prep
+            </div>
+            <div class="note">
+              <strong>Exam cost: ~$400 USD.</strong> This is the one thing worth
+              saving for. Without a degree, this cert is what gets your resume
+              past automated filters. Watch for CompTIA discounts on their site
+              — 30–40% off are common during sales.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t54" /><label for="t54"
+                  >Work through ALL 121 Professor Messer Security+ videos in
+                  order — the complete free course (15 hrs total)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/"
+                    target="_blank"
+                    >professormesser.com — Full SY0-701 Course Index (all 121
+                    videos)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t55" /><label for="t55"
+                  >Download and read Professor Messer's free Security+ course
+                  notes PDF</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-course-notes"
+                    target="_blank"
+                    >professormesser.com — SY0-701 Course Notes (free PDF)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t56" /><label for="t56"
+                  >Download the official CompTIA Security+ exam objectives — use
+                  as your study checklist</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.comptia.org/training/resources/exam-objectives/comptia-security-sy0-701-exam-objectives"
+                    target="_blank"
+                    >comptia.org — Official SY0-701 Exam Objectives (free
+                    PDF)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t57" /><label for="t57"
+                  >Take ExamCompass free practice tests — do these daily. Do not
+                  book the exam until scoring 80%+ consistently.</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://www.examcompass.com/comptia/security-plus-certification/security-plus-practice-tests"
+                    target="_blank"
+                    >examcompass.com — free Security+ practice tests (no
+                    signup)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t58" /><label for="t58"
+                  >Watch Professor Messer's monthly live Security+ Study Group
+                  replays — free Q&amp;A sessions</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag video">VIDEO</span
+                  ><a
+                    href="https://www.professormesser.com/security-plus/sy0-701/sy0-701-study-group/sy0-701-security-study-group-replays/"
+                    target="_blank"
+                    >professormesser.com — SY0-701 Study Group Replays (free)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t59" /><label for="t59"
+                  >Book and pass the Security+ exam when mock scores are
+                  consistently above 80%</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.comptia.org/certifications/security"
+                    target="_blank"
+                    >comptia.org/certifications/security — exam info and
+                    booking</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              ★ Project 2 — CyberDefenders Labs (min. 5 labs, write up each one)
+            </div>
+            <div class="note">
+              <strong>Portfolio piece.</strong> These are real attack scenarios
+              — actual logs, actual malware artifacts. Each lab you complete and
+              document is a concrete story you can tell in interviews. Pick blue
+              team / SOC-focused labs.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t60" /><label for="t60"
+                  >Create free CyberDefenders account and browse the blue team
+                  lab catalog</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a
+                    href="https://cyberdefenders.org/blueteam-ctf-challenges/"
+                    target="_blank"
+                    >cyberdefenders.org — Blue Team CTF Challenges (free)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t61" /><label for="t61"
+                  >Lab 1: Complete + write a short investigation report (what
+                  happened, how you found it, what the attacker did)</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t62" /><label for="t62"
+                  >Lab 2: Complete + write investigation report</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t63" /><label for="t63"
+                  >Lab 3: Complete + write investigation report</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t64" /><label for="t64"
+                  >Lab 4: Complete + write investigation report</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t65" /><label for="t65"
+                  >Lab 5: Complete + write investigation report</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              ★ Project 3 — Alert Triage Documentation (GitHub Portfolio)
+            </div>
+            <div class="note">
+              <strong>Portfolio piece.</strong> Create a public GitHub repo.
+              Document 10 attack scenarios: what they are, what their logs look
+              like, how you investigate, when you escalate. Hiring managers for
+              SOC roles read these.
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t66" /><label for="t66"
+                  >Create public GitHub repo named "soc-analyst-portfolio" — add
+                  a clear README</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a href="https://github.com/new" target="_blank"
+                    >github.com/new — create new repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t67" /><label for="t67"
+                  >Document scenario: Phishing email — headers, links,
+                  attachments, what logs to check</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t68" /><label for="t68"
+                  >Document scenario: SSH/RDP Brute Force — Event IDs 4625
+                  (failed login), threshold, geoIP lookup</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t69" /><label for="t69"
+                  >Document scenario: Lateral Movement — Event ID 4624 type 3,
+                  unusual admin shares</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t70" /><label for="t70"
+                  >Document scenario: C2 Beaconing — periodic outbound
+                  connections, unusual domains, DNS anomalies</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t71" /><label for="t71"
+                  >Document scenario: Data Exfiltration — large outbound
+                  transfers, unusual destination IPs/ports</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t72" /><label for="t72"
+                  >Document scenario: Privilege Escalation — Event ID 4672,
+                  unusual admin group changes</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t73" /><label for="t73"
+                  >Document scenario: Ransomware Indicators — mass file renames,
+                  shadow copy deletion (vssadmin)</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t74" /><label for="t74"
+                  >Document scenario: SQL Injection — web app logs, unusual DB
+                  queries, 5xx HTTP responses</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t75" /><label for="t75"
+                  >Document scenario: Web Shell — unusual process spawned by web
+                  server, outbound connections from IIS/Apache</label
+                >
+              </div>
+            </div>
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t76" /><label for="t76"
+                  >Document scenario: Insider Threat — off-hours access, bulk
+                  file downloads, USB usage logs</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              Ongoing Practice Platforms — Use Throughout All Phases
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t77" /><label for="t77"
+                  >LetsDefend — simulates a real SOC alert queue with tickets to
+                  investigate (free tier)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://letsdefend.io" target="_blank"
+                    >letsdefend.io — free tier SOC simulation</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t78" /><label for="t78"
+                  >Blue Team Labs Online — free labs focused on log analysis and
+                  incident response</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://blueteamlabs.online" target="_blank"
+                    >blueteamlabs.online — free tier</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t79" /><label for="t79"
+                  >HackTheBox — blue team and forensics challenges (free
+                  tier)</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag practice">PRACTICE</span
+                  ><a href="https://www.hackthebox.com" target="_blank"
+                    >hackthebox.com — free account</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Resume + Job Applications</div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t80" /><label for="t80"
+                  >Build resume — list tools by name: Splunk, Elastic SIEM/ELK,
+                  Wireshark, MITRE ATT&CK, Windows Event Logs, NIST IR</label
+                >
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t81" /><label for="t81"
+                  >Add GitHub portfolio URL and TryHackMe profile URL directly
+                  on your resume</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag tool">TOOL</span
+                  ><a href="https://tryhackme.com/profile" target="_blank"
+                    >tryhackme.com/profile — your public profile URL to share</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t82" /><label for="t82"
+                  >In your resume summary, mention your web/frontend background
+                  — it directly applies to web app attack detection</label
+                >
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-row">
+                <input type="checkbox" id="t83" /><label for="t83"
+                  >Start applying — target: Tier 1 SOC Analyst, Junior Security
+                  Analyst, Information Security Analyst</label
+                >
+              </div>
+              <div class="resources">
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a href="https://www.cybersecjobs.com" target="_blank"
+                    >cybersecjobs.com — dedicated cybersecurity job board</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.linkedin.com/jobs/search/?keywords=soc%20analyst"
+                    target="_blank"
+                    >linkedin.com — search "SOC Analyst entry level"</a
+                  >
+                </div>
+                <div class="res">
+                  <span class="res-tag doc">DOC</span
+                  ><a
+                    href="https://www.indeed.com/jobs?q=junior+soc+analyst"
+                    target="_blank"
+                    >indeed.com — search "junior SOC analyst"</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-label">Month 10 Milestone</div>
+            Security+ certified. 5 CyberDefenders labs documented publicly.
+            GitHub portfolio live with SIEM lab writeup and alert triage docs.
+            Actively applying and interviewing.
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMARY TABLE -->
+      <div class="summary">
+        <div class="summary-header"><h2>Month-by-Month Summary</h2></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Primary Focus</th>
+              <th>Deliverable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                Networking videos (Messer N10-009) + Linux Journey + VMs set up
+              </td>
+              <td>Both VMs running, subnetting clicking</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                Bandit OverTheWire all 34 levels + SANS Cyber Aces + Messer
+                Security+ key videos
+              </td>
+              <td>Bandit complete, core vocabulary built</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>TryHackMe Pre-Security path + Windows Fundamentals 1,2,3</td>
+              <td>Pre-Security path done</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                TryHackMe SOC Level 1 path + Splunk 101 room + Event Logs room
+              </td>
+              <td>SOC Level 1 path complete</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                Splunk Fundamentals 1 (official) + BOTS dataset 1 + MITRE ATT&CK
+                study
+              </td>
+              <td>Splunk badge earned</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                MyDFIR 30-Day Challenge (ELK SIEM lab build) + Wireshark 101
+              </td>
+              <td>ELK lab live, first writeup posted</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>
+                Finish SIEM lab writeup + CyberDefenders first 3 labs + IR room
+              </td>
+              <td>3 CyberDefenders labs documented</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>
+                Security+ full Messer video course + ExamCompass daily practice
+              </td>
+              <td>Mock scores above 80%</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>
+                Security+ exam + 2 more CyberDefenders labs + GitHub portfolio
+                polish
+              </td>
+              <td>Certified + 5 labs done</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>
+                Alert triage docs (10 scenarios) + Resume + Active applications
+              </td>
+              <td>Interviewing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer-note">
+        <strong
+          >The cert gets you past HR filters. The portfolio gets you through the
+          technical interview.</strong
+        >
+        Every lab you build, every writeup you post, every scenario you document
+        is worth more than a certification in an actual hiring conversation.
+        Your frontend/web background is an asset — lean into it. Start with
+        OverTheWire Bandit Level 0 tonight.
+      </div>
+    </div>
+    <!-- end container -->
+
+    <script>
+      function save(id, val) {
+        try {
+          localStorage.setItem("soc2_" + id, val ? "1" : "0");
+        } catch (e) {}
+      }
+      function load(id) {
+        try {
+          return localStorage.getItem("soc2_" + id) === "1";
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function updateProgress() {
+        const all = document.querySelectorAll('input[type="checkbox"]');
+        const done = [...all].filter((c) => c.checked).length;
+        const pct = all.length ? Math.round((done / all.length) * 100) : 0;
+        document.getElementById("progressFill").style.width = pct + "%";
+        document.getElementById("progressCount").textContent =
+          done + " / " + all.length + " tasks (" + pct + "%)";
+      }
+
+      document.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+        cb.checked = load(cb.id);
+        cb.addEventListener("change", () => {
+          save(cb.id, cb.checked);
+          updateProgress();
+        });
+      });
+      updateProgress();
+
+      function togglePhase(header) {
+        const body = header.nextElementSibling;
+        const arrow = header.querySelector(".phase-toggle");
+        const collapsed = body.classList.toggle("collapsed");
+        arrow.textContent = collapsed ? "▸" : "▾";
+      }
+
+      function resetAll() {
+        if (!confirm("Reset all progress? This cannot be undone.")) return;
+        document.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+          cb.checked = false;
+          save(cb.id, false);
+        });
+        updateProgress();
+      }
+    </script>
+  </body>
+</html>
