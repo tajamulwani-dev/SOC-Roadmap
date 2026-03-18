@@ -2199,7 +2199,7 @@
       function resetAll() {
         if (!confirm("Reset all progress? This cannot be undone.")) return;
         document.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
-          cb.checked = false;
+          cb.checked = false
           save(cb.id, false);
         });
         updateProgress();
